@@ -1,4 +1,4 @@
-##弄清楚babel的stage
+## 弄清楚babel的stage
 
 在使用babel的过程中，有一个 .babelrc 文件,里面可能会有这样一个配置
 
@@ -11,7 +11,7 @@
 ```
 其中的 es2015 表示 babel会加载 es6 相关的编译模块，
 
-####transform-runtime 对比 babel-polyfill
+#### transform-runtime 对比 babel-polyfill
 <https://juejin.im/post/59b9ffa8f265da06710d8e89>
 
 babel-runtime 和 babel-plugin-transform-runtime 统称为 transform-runtime，因为一起用才比较好。

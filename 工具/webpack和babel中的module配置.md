@@ -1,7 +1,7 @@
-##ECMAScript 6 的模块相比 CommonJS 的require (...)有什么优点？
+## ECMAScript 6 的模块相比 CommonJS 的require (...)有什么优点？
 
 
-###1. TreeShaking
+### 1. TreeShaking
 
 虽然这是 Webpack 2 中的新特性，但是它与 ES6 模块化有着千丝万缕的关系。
 
@@ -11,12 +11,14 @@ module.js
 
 ```
 export const sayHello = name => `Hello ${name}!`;
-export const sayBye = name => `Bye ${name}!`;  
-index.js
+export const sayBye = name => `Bye ${name}!`;
+```
 
+index.js
+```
 import { sayHello } from './module';
 
-sayHello('World');  
+sayHello('World');
 ```
 
 假设这个工程一共只有两个文件，那么sayBye() 方法虽然没有被使用过，但是仍然会被 export。然而如果我们在 Babel 中启用 ES6 模块化，同时升级到 Webpack 2.0/3.0 那么就可以轻松实现 TreeShaking（利用的是 Webpack 2+ 的 Native Import 特性），最终的效果是只有 sayHello() 会被作为 module 的一部分导出。
@@ -27,7 +29,7 @@ sayHello('World');
 
 ```
 {
-  presets: [ 
+  presets: [
     [ 'es2015', { modules: false } ],
     ...
   ],
