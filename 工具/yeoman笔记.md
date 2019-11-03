@@ -1,5 +1,5 @@
-##yeoman run loop
-###执行顺序优先级（running order）
+## yeoman run loop
+### 执行顺序优先级（running order）
 1. `initializing`： 初始化方法（check当前项目状态、获取configs。。。）
 2. `prompting`：用户配置引导（调用`this.prompt()`）
 3. `configuring`：保存配置项并且配置项目（创建`.editorconfig`文件和其他元数据文件（metadata files））
