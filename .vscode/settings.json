@@ -36,5 +36,6 @@
         "xml",
         "yaml",
         "yml"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }

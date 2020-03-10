@@ -1,0 +1,22 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compiler": "babel src --out-dir lib --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-arrow-functions": "^7.8.3",
+    "@babel/polyfill": "^7.8.7",
+    "core-js": "^3.6.4"
+  }
+}
