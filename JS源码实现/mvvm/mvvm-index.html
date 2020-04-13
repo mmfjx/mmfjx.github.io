@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width'>
+        <title>Test</title>
+    </head>
+    <body>
+        <div>mvvm测试</div>
+        <div id="app">
+            <h1>{{song}}</h1>
+            <p>{{singer}}</p>
+            <input v-model="inputVal" type="text">
+            <!-- <p>{{sum}}</p> -->
+        </div>
+        <script src="./mvvm.js"></script>
+        <script>
+            let mvvm = new Mvvm({
+                el: '#app',
+                data: {
+                    song: '大鱼',
+                    singer: '周深',
+                    a: {
+                        b: 1
+                    },
+                    c: 4,
+                    inputVal: 2,
+
+                },
+                computed: {
+                    sum() {
+                        return this.c + this.inputVal;
+                    },
+                    noop() {}
+                },
+                mounted() {
+                    // setTimeout(() => {
+                    //     console.log('done');
+                    // }, 1000)
+                }
+            })
+            // setTimeout(() => {
+            //     mvvm.song = '有一件美好的事情即将发生';
+            //     // console.log(mvvm)
+            // }, 3000);
+        </script>
+    </body>
+</html>

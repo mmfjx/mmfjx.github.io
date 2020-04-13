@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width'>
+        <title>Test</title>
+    </head>
+    <body>
+        <div>源码测试</div>
+        <!-- <script src="./quick-sort.js" type="module"></script> -->
+        <!-- <script src="./国际象棋.js"></!-->
+        <script src="./bind.js"></script>
+        <script src="./deepClone.js"></script>
+        <script src="./eventEmit.js"></script>
+        <script>
+            function ConstructorFn (name, sex) {
+                this.name = name;
+                this.sex = sex;
+            }
+
+            let a = newOpera(ConstructorFn, 'mmf', 'male');
+            console.log(typeof a )
+
+            let name = 'mme';
+            function fn (sex) {
+                console.log(this.name, sex);
+            }
+
+            let testObj = {
+                name: 'test',
+                testFn: function () {
+                    console.log('deep clone')
+                },
+                a: {
+                    b: [1,2,3]
+                }
+            }
+
+            fn.applyFn(testObj, ['female']);
+            fn.callFn(testObj, 'male')
+
+            let cloneObj = deepClone(testObj);
+
+            cloneObj.a.b.push(4);
+            console.log(cloneObj, testObj,'cloneObj')
+
+
+            let eventEmit = new EventEmit();
+
+
+            eventEmit.$on('change', (val) => {
+                console.log(val, 'emit on 1')
+            })
+            eventEmit.$on('change', (val) => {
+                console.log(val, 'emit on 2')
+            })
+            eventEmit.$emit('change', {
+                a: 433
+            });
+
+
+
+        </script>
+    </body>
+</html>

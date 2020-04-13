@@ -6,7 +6,7 @@ class Promise{
         this.value = null;
         // 失败的原因
         this.reason = null;
-        this.onResolveCallbacks = [];
+        this.onResolveCallbacks = []; //
         this.onRejectedCallbacks = [];
         let resolve = (value) => {
             if(this.state === 'pending'){
@@ -80,7 +80,90 @@ class Promise{
     }
 
     resolvePromise(promise2, x, resolve, reject) {
+        if (promise2 === x) {
+            return reject(new TypeError('循环引用'))
+        }
 
+        if ( x !== null &&(typeof x === 'object' || typeof x === 'function')) {
+            let called; // 防止成功后调用失败
+            try {
+                let then = x.then;
+                if (typeof then === 'function') {
+                    then.call(x, (res) => {
+                        if(called) {
+                            return;
+                        }
+                        called = true;
+                        resolvePromise(promise2, res, resolve, reject);
+                    }, (reason) => {
+                        if(called) {
+                             return;
+                        }
+                        called = true;
+                        reject(reason);
+                    })
+                } else {
+                    resolve(x);
+                }
+            }catch (e) {
+                if (called) return;
+                called = true;
+                reject(e);
+            }
+        } else {
+            resolve(x);
+        }
     }
 
+}
+
+Promise.all = function (promiseArr) {
+    return new Promise(function (resolve, reject){
+        let resArr = [];
+        let count = 0;
+        function processData(data, i) {
+            resArr[i] = data;
+            if (++count === promiseArr.length) {
+                resolve(resArr);
+            }
+
+        }
+        for(let i = 0; i< promiseArr.length; i++) {
+            promiseArr[i].then((data) => {
+                processData(data, i);
+            }, reject);
+        }
+    })
+}
+
+Promise.race = function (promiseArr) {
+    return new Promise((resolve, reject) => {
+        for(let i = 0; i< promiseArr.length; i++) {
+            promiseArr[i].then(resolve, reject);
+        }
+    })
+}
+
+Promise.resolve = function(value) {
+    return new Promise((resolve, reject) => resolve(value));
+}
+
+Promise.reject = function (reason) {
+    return new Promise((resolve, reject) => reject(reason));
+}
+
+
+
+// async await 是promise语法糖
+async function async1() {    
+    console.log('async1 start');    
+    await async2();    
+    console.log('async1 end');
+}
+// 相当于
+async function async1() {    
+    console.log('async1 start');    
+    Promise.resolve(async2()).then(() => {      
+        console.log('async1 end');  
+    })
 }
