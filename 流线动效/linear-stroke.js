@@ -1,17 +1,17 @@
-let linearStroke = ({dom, path, width, height, id, lineWidth=100, strokeWidth=4, time=1000, x1, y1, x2, y2, isFill}) => {
-    if (!width && !height) {
-        let rect = dom.getBoundingClientRect();
-        width = rect.width;
-        height = rect.height;
-    }
+let linearStroke = ({$svg, path,id, lineWidth=100, strokeWidth=4, time=1000, x1, y1, x2, y2, isFill}) => {
+    // if (!width && !height) {
+    //     let rect = dom.getBoundingClientRect();
+    //     width = rect.width;
+    //     height = rect.height;
+    // }
     if (!id) {
         id = `strokeMotionLinear_${Math.random().toString(36).slice(-8)}_`;
     }
 
-    let $svg = d3.select(dom).append('svg')
-        .attr('width', '100%')
-        .attr('height', '100%')
-        .attr('preserveAspectRatio', 'none')
+    // let $svg = d3.select(dom).append('svg')
+    //     .attr('width', '100%')
+    //     .attr('height', '100%')
+    //     .attr('preserveAspectRatio', 'none')
 
         // .style('position', 'absolute')
         // .style('left', '0')

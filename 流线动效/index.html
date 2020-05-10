@@ -15,16 +15,29 @@
             import linearStroke from './linear-stroke.js';
             import maskStroke from './mask-stroke.js';
             const dom = document.getElementById('test');
-                linearStroke({
-                    dom, path: 'M10 80 Q 77.5 10, 145 80 T 280 80',
-                width: 500,
-            height: 500})
-
-            // maskStroke({
-            //     dom, path: 'M10 80 Q 77.5 10, 145 80 T 280 80',
+            //     linearStroke({
+            //         dom, path: 'M10 80 Q 77.5 10, 145 80 T 280 80',
             //     width: 500,
-            // height: 500
-            // })
+            // height: 500})
+
+            let $svg = d3.select(dom).append('svg')
+                .attr('width', '100%')
+                .attr('height', '100%')
+                .attr('preserveAspectRatio', 'none')
+                linearStroke({
+                    $svg, path: 'M10 80 Q 77.5 10, 145 80 T 280 80',
+                })
+
+            for(let i = 0; i< 100; i++) {
+                // maskStroke({
+                //     $svg, path: 'M10 80 Q 77.5 10, 145 80 T 280 80',
+                // })
+
+                // linearStroke({
+                //     $svg, path: 'M10 80 Q 77.5 10, 145 80 T 280 80',
+                // })
+            }
+
         </script>
     </body>
 </html>

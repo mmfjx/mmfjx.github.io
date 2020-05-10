@@ -1,24 +1,10 @@
-let maskStroke = ({dom, path, width, height, id, lineWidth=50, strokeWidth=4, time=1000, pathReverse}) => {
-    if (!width && !height) {
-        let rect = dom.getBoundingClientRect();
-        width = rect.width;
-        height = rect.height;
-    }
+let maskStroke = ({$svg,  path,  id, lineWidth=50, strokeWidth=4, time=1000, pathReverse}) => {
+
     if (!id) {
         id = `strokeMotionMask_${Math.random().toString(36).slice(-8)}_`;
     }
-
-    let $svg = d3.select(dom).append('svg')
-        .attr('width', '100%')
-        .attr('height', '100%')
-        .attr('preserveAspectRatio', 'none')
-        // .attr('viewBox', `0 0 ${width} ${height}`)
-        // .style('position', 'absolute')
-        // .style('left', '0')
-        // .style('top', '0');
-        $svg.append('path')
-        .attr('d', path)
-        .attr('stroke', '#aaaaaa');
+    $svg.append('path')
+        .attr('d', path).attr('stroke', '#aaaaaa');
     let $path = $svg.append('path')
         .attr('d', path);
     let pathLength = $path.node().getTotalLength();
@@ -69,7 +55,7 @@ let maskStroke = ({dom, path, width, height, id, lineWidth=50, strokeWidth=4, ti
 
     let distance = 0;
     let times = time / 16.6;
-    let step = pathLength / times;
+    let step = 5;
     let isStop = false;
     let raf = () => {
         if (isStop) { return void 0; }
