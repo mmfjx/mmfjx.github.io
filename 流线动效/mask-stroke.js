@@ -40,14 +40,14 @@ let maskStroke = ({$svg,  path,  id, lineWidth=50, strokeWidth=4, time=1000, pat
     let $mask = $svg.append('mask').attr('id', maskId);
     let $maskCircle = $mask
         .append('circle')
-        .style('will-change', 'auto')
+        // .style('will-change', 'auto')
         .attr('cx', '0')
         .attr('cy', '0')
         .attr('r', lineWidth)
         .attr('fill', `url(#${linearId})`); // red
 
     $path
-        .style('will-change', 'auto')
+        // .style('will-change', 'auto')
         .style('fill', 'none')
         .style('stroke', '#f00')
         .style('stroke-width', strokeWidth)

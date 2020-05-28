@@ -71,3 +71,42 @@ Function.prototype.callFn = function (thisArg, ...arg) {
     return res;
 }
 
+// 函数节流 (针对函数频繁调用的场景，改为定时调一次)
+function throttle(fn, delayTime) {
+    let isFirst = true;
+    let timer = null;
+    let _fn = fn;
+    return function() {
+        let that = this;
+        let args = arguments;
+        if (isFirst) {
+            isFirst = false;
+            return _fn.apply(that, args);
+        }
+
+        if (timer) {
+            return false;
+        }
+
+        timer = setTimeout(() => {
+            clearTimeout();
+            timer = null;
+            _fn.apply(that, args)
+        }, delayTimer);
+    }
+}
+
+// 函数防抖（针对用户输入类似的事件，延迟n秒之后再触发执行函数，如果在n秒之后再次触发，则重新计时）
+
+function debounce(fn , delayTime) {
+    let that = this;
+    let timer = null;
+    return function(args){
+        let _args = args;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn.call(that, _args)
+        }, delayTime);
+    }
+}
+

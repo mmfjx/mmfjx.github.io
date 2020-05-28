@@ -18,7 +18,6 @@ var numRookCaptures = function(board) {
     }
 
     let total = 0;
-    debugger
 
     // 上
     for (let i = R.x - 1; i >= 0; i--) {

@@ -24,14 +24,14 @@
                 .attr('width', '100%')
                 .attr('height', '100%')
                 .attr('preserveAspectRatio', 'none')
-                linearStroke({
-                    $svg, path: 'M10 80 Q 77.5 10, 145 80 T 280 80',
-                })
-
-            for(let i = 0; i< 100; i++) {
-                // maskStroke({
+                // linearStroke({
                 //     $svg, path: 'M10 80 Q 77.5 10, 145 80 T 280 80',
                 // })
+
+            for(let i = 0; i< 100; i++) {
+                maskStroke({
+                    $svg, path: 'M10 80 Q 77.5 10, 145 80 T 280 80',
+                })
 
                 // linearStroke({
                 //     $svg, path: 'M10 80 Q 77.5 10, 145 80 T 280 80',
