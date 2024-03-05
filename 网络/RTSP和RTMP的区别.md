@@ -8,10 +8,10 @@
 他们是 TCP/IP 协议族的成员，处于网络信息的传输层，我们可以理解，数据传输的事情就是他们两个人干，当然也包括音、视频数据的传输。
 
 UDP/TCP 本质上是一种网络传输协议，负责、并规范了信息的传递。
-![pasted-image2](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/osi.png){width="200", height="200"}
+![pasted-image2](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/osi.png){width="200", height="200"}
 
-![tcp-1](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/tcp-3.jpeg){width="500", height="500"}
-![tcp-1](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/net-model.png)
+![tcp-1](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/tcp-3.jpeg){width="500", height="500"}
+![tcp-1](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/net-model.png)
 
 **UDP**（User Datagram Protocol，用户数据报协议），一种无连接协议，即将数据从一端传输到另一端;无需建立连接。UDP 也位于应用层和网络层之间。它还以数据包的形式传递数据或信息;这些数据包称为用户数据报。UDP 使用多路复用来处理来自多个进程的传出用户数据报，并使用解复用来处理进入同一主机上不同进程的传入用户数据报。
 
@@ -52,9 +52,9 @@ UDP/TCP 本质上是一种网络传输协议，负责、并规范了信息的传
 
 RTSP 组合使用了可靠传输协议 TCP（控制）和高效传输协议 UDP（内容）来串流（streaming）内容给用户。它支持点播（Video-On-Demand）以及直播（Live Streaming）服务。
 RTSP 协议本身并不负责数据传输，**通常（非必须）** 是通过 RTP（Real-time Transport Protocol）配合 RTCP（Real-time Control Protocol）完成数据流和控制命令（同步、QOS 管理等）的传输。具体应用中，三者的关系如下图所示：
-![rtsp](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/rtsp.jpeg)
-![rstp1](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/rtsp-ti.png)
-![rtsp发送和接受](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/rtsp-send-receive.jpeg)
+![rtsp](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/rtsp.jpeg)
+![rstp1](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/rtsp-ti.png)
+![rtsp发送和接受](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/rtsp-send-receive.jpeg)
 TCP 可靠传输，比如用户按下播放或者停止播放的时候，这个是个准确的请求，这个需要保证可靠性，这个时候 TCP 作用就体现了。
 UDP 是低延迟的协议，那么用于传送音频、视频和数据可以达到非常高效的效果。
 
@@ -70,9 +70,9 @@ RTP 协议提供了以下主要特性：
 4. 多播与单播：RTP 支持多播和单播传输。多播允许同时向多个接收者发送相同的媒体数据，而单播则为一对一的传输。
 5. 扩展性：RTP 协议具有很好的扩展性，可以通过扩展头部字段或定义新的负载类型来支持新的功能或编码格式。
 
-![rtp](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/rtp.png)
+![rtp](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/rtp.png)
 
-![rtp-2](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/rtp-1.png)
+![rtp-2](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/rtp-1.png)
 
 -   填充位（1bit）若 p=1 则在该报文的尾部填充一个或多个额外的八位组，它们不是有效载荷的一部分。填充可能用于某些具有固定长度的加密算法或者用在底层数据单元中传输多个 RTP 包
 -   扩展（X）：1 个比特，置“1”表示 RTP 报头后紧随一个扩展报头
@@ -118,7 +118,7 @@ RTSP（Real-Time Streaming Protocol，实时流媒体传输协议）是一种应
 #### RTSP 与 RTP/RTCP 的关系
 
 RTSP 用于建立和控制多媒体会话，如播放、暂停、快进等操作。它可以协调多个 RTP/RTCP 会话，为实时多媒体数据提供传输通道。RTSP 并不直接传输多媒体数据，而是通过 RTP 协议进行音视频数据的传输。与此同时，RTCP 协议负责监控数据传输的质量，并在必要时向发送端反馈以进行调整。
-![rtsp2](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/rtsp-2.png)
+![rtsp2](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/rtsp-2.png)
 
 #### 协同传输实现
 
@@ -183,7 +183,7 @@ RTSP 常用的状态码有：
 
 ### RTSP 工作原理
 
-![rtsp](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/rtsp.png)
+![rtsp](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/rtsp.png)
 
 1. 客户端向服务器发送 OPTIONS 请求，查询服务器支持的 RTSP 方法。
 2. 客户端向服务器发送 DESCRIBE 请求，获取媒体资源的描述信息，如编码格式、比特率等。
@@ -209,7 +209,7 @@ RTSP 常用的状态码有：
 
 ### RTMP 工作原理
 
-![rtmp](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/rtmp.png)
+![rtmp](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/rtmp.png)
 一般来说视频流是这样工作的：
 
 1. 摄像头捕获视频
@@ -227,6 +227,6 @@ HLS，英文全称为：HTTP Live Streaming，由苹果公司提出，它是基�
 
 ## RTSP、RTMP、HLS 对比总结
 
-![pasted-image3](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/OSI七层网络模型和TCP/images/3对比.png)
+![pasted-image3](https://github.com/mmfjx/mmfjx.github.io/blob/master/网络/images/3对比.png)
 
 从网络上接收视频时首先要解协议（RTSP/RTMP/HTTP），然后是解格式（MKV，RMVB），之后才是将视频（H264）和音频（AAC）格式数据分别解码为图像（RGB/YUV）和声音（PCM），再根据时间戳同步播放。RTSP+RTP 主要用于 IPTV，原因是传输数据使用的是 UDP，在网络环境比较稳定的情况下，传输效率是比较高的；RTMP 主要用于互联网音视频传输，它使用的是 TCP 传输，因为互联网环境相对较差，采用 RTMP 保证了视频的传输质量，但是其传输延迟相对较高，传输效率相对较低。使用 RTMP 技术的流媒体系统有一个非常明显的特点：使用 Flash Player 作为播放器客户端，而 Flash Player 现在已经安装在了全世界将近 99%的 PC 上，因此一般情况下收看 RTMP 流媒体系统的视音频是不需要安装插件的。用户只需要打开网页，就可以直接收看流媒体，十分方便。直播服务普遍采用了 RTMP 作为流媒体协议，FLV 作为封装格式，H.264 作为视频编码格式，AAC 作为音频编码格式。FLV 是 RTMP 使用的封装格式，H.264 是当今实际应用中编码效率最高的视频编码标准，AAC 则是当今实际应用中编码效率最高的音频编码标准。librtmp 是 RTMP 协议的实现，可以使用 librtmp 来实现协议的解析和数据的收发。直播服务器可以基于 nginx+rtmp 实现；直播客户端方面采用 librtmp 负责推流，FFmpeg 负责编码；收看客户端采用 VLC 即可，因为 VLC 本身既可以解析 RTMP 流，又可以解析编码后的视频数据。
