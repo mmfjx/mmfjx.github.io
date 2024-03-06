@@ -1,17 +1,17 @@
 const list = [1, 2, 3]
-const square = num => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(num * num)
-    }, 3000)
-  })
+const square = (num) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(num * num)
+        }, 3000)
+    })
 }
 
 function test() {
-  list.forEach(async x=> {
-    const res = await square(x)
-    console.log(res)
-  })
+    list.forEach(async (x) => {
+        const res = await square(x)
+        console.log(res)
+    })
 }
 test() // 3s后，同时输出1，4，9
 
@@ -19,18 +19,18 @@ test() // 3s后，同时输出1，4，9
 
 // 最简单的迭代器对象
 var zeroesForeverIterator = {
-  [Symbol.iterator]: function () {
-    return this;
-  },
-  next: function () {
-    return {done: false, value: 0};
-  }
-};
+    [Symbol.iterator]: function () {
+        return this
+    },
+    next: function () {
+        return { done: false, value: 0 }
+    },
+}
 
 // 可以用for-of方式遍历，要求被遍历的对象需要实现迭代器方法
-async function test() {
-  for(let x of list){
-    const res = await square(x);
-    console.log(res);
-  }
-}
+// async function test() {
+//   for(let x of list){
+//     const res = await square(x);
+//     console.log(res);
+//   }
+// }
