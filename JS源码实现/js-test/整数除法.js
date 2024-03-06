@@ -4,7 +4,7 @@ function division(dividend, divisor) {
     // js 中最大安全整数 Number.MAX_SAFE_INTEGER 9007199254740991 = 2^53-1   最小安全整数Number.MIN_SAFE_INTEGER -9007199254740991  -2^53+1
     // 浮点数范围 （https://zhuanlan.zhihu.com/p/351127362）
     if (division === 0) {
-        throw new Error('divisor 0')
+        return Infinity;
     }
     let neg = 2
     if (dividend < 0) {
@@ -54,4 +54,4 @@ function divisionCore(dividend, divisor) {
     }
 }
 
-console.log(division(-354, 0))
+console.log(division(-354,24))

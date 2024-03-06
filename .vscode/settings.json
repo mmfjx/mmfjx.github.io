@@ -37,5 +37,7 @@
         "yaml",
         "yml"
     ],
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "files.autoSave": "onFocusChange",
+    "javascript.format.enable": true
 }
