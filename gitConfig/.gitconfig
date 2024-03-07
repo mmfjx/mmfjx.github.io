@@ -1,0 +1,10 @@
+[alias]
+	st = status
+    co = checkout
+    ci = commit
+    br = branch
+
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = false
