@@ -29,10 +29,10 @@ function fn1(words) {
     return res
 }
 
-// console.log(fn1(['abcw', 'foo', 'bar', 'fxyz', 'abcdef']))
+console.log(fn1(['abcw', 'foo', 'bar', 'fxyz', 'abcdef']))
 
 function printBinaryString(char) {
-    // 将字符转换为 Unicode 编码
+    // 将字符转换为 Unicode 编码s
     const charCode = char.charCodeAt(0)
 
     // 将 Unicode 编码转换为二进制字符串
@@ -51,20 +51,20 @@ function fn2(words) {
             // console.log(
             //     char,
             //     flags[i],
-            //     1 << (char.charCodeAt(0) - 'a'.charCodeAt(0))
+            //     char.charCodeAt(0) - 'a'.charCodeAt(0)
             // )
             flags[i] =
                 flags[i] | (1 << (char.charCodeAt(0) - 'a'.charCodeAt(0))) // | 用来合并
         }
-        console.log(flags[i], 'flags')
+        // console.log(flags[i], 'flags')
         printBinaryString(flags[i].toString())
     }
 
     let res = 0
     for (let i = 0; i < words.length; i++) {
         for (let j = i + 1; j < words.length; j++) {
-            if (flags[i] & (flags[j] === 0)) {
-                console.log(words[i], words[j])
+            if ((flags[i] & flags[j]) === 0) {
+                console.log(words[i].length, words[j].length)
                 const temp = words[i].length * words[j].length
                 res = Math.max(res, temp)
             }
