@@ -1,9 +1,9 @@
-// 给定一个链表，链表中节点的顺序是L0->L1->L2->L3->L4->L5->...->Ln，请问如何重排使节点的顺序变成L0->Ln->L1->Ln-1->L2->Ln-2->...
-// 思路：观察重排后的顺序，是把原链表折成两半后，后半段需反转再拼接在一起的，因此，需先找到中间节点，再断开，找中间节点，可以用快慢指针，快指针走两步，慢指针走一步，当快指点到尾节点时，慢指针刚好在中间节点
+// 判断一个链表是不是回文, 要求时间复杂度O(n)，空间复杂度小于O(n)
+// 思路: 还是折半，反转，最后比较的方法
 const utils = require('./utils')
 const { ListNode, createLinkedList, printLinkedList } = utils
 
-let arr = [1, 2, 3, 4, 5, 6, 7]
+let arr = [1, 2, 3, 4, 3, 2, 1]
 let head = createLinkedList(arr)
 
 function splitLinkedList(head) {
@@ -39,22 +39,22 @@ function reserveLinkedList(head) {
     return pre
 }
 
-function reOrder(head) {
+function fn1(head) {
+    if (!head || !head.next) {
+        return true
+    }
     let { head1, head2 } = splitLinkedList(head)
     head2 = reserveLinkedList(head2)
     let node1 = head1
     let node2 = head2
     while (node1 && node2) {
-        const next1 = node1.next
-        let next2 = null
-
-        next2 = node2?.next
-        node1.next = node2
-        node2.next = next1
-        node2 = next2
-        node1 = next1
+        if (node1.val !== node2.val) {
+            return false
+        }
+        node1 = node1.next
+        node2 = node2.next
     }
-    return head1
-}
 
-printLinkedList(reOrder(head))
+    return true
+}
+console.log(fn1(head))
