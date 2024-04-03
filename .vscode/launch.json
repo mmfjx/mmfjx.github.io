@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/JS源码实现/js-test/字符串/19.最多删除一个字符得到回文.js"
+            "program": "${workspaceFolder}/JS源码实现/算法/二分查找/68. 查找插入的位置.mjs"
         }
     ]
 }
